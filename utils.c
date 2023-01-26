@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 18:39:48 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/01/26 19:01:34 by amdemuyn         ###   ########.fr       */
+/*   Created: 2023/01/26 18:37:55 by amdemuyn          #+#    #+#             */
+/*   Updated: 2023/01/26 19:03:31 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <push_swap.h>
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-# include <stdio.h>
-
-typedef struct s_stack
+int	is_digit(char c)
 {
-	int				value;
-	int				index;
-	struct s_stack	*next;
-}	t_stack;
+	return (c >= '0' && c <= '9');
+}
 
-t_stack		*fill_stack(int argc, char **argv);
-void		crea_index(t_stack *stack_a, int argc);
+long int	ft_atoi(const char *str)
+{
+	long int	num;
+	int			neg;
+	int			i;
 
-int			find_size(t_stack *stack);
-int			input_ok(char **argv);
-
-#endif
+	num = 0;
+	neg = 1;
+	i = 0;
+	if (str[i] == '+')
+		i++;
+	if (str[i] == '-')
+	{
+		neg *= -1;
+		i++;
+	}
+	while (is_digit(str[i]))
+	{
+		num = (num * 10) + (str[i] - '0');
+		i++;
+	}
+	return (num * neg);
+}
