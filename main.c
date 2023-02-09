@@ -6,7 +6,7 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:43:52 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/08 17:01:59 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:17:49 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 * EXIT_FAILURE = 1 / EXIT_SUCCESS = 0
 */
 
-int	crea_stack(int	argc, char **argv, int stack_size)
+int	*crea_stack(int argc, char **argv, int stack_size)
 {
-	//TO DO
+	//TODO
 }
 
+/* find how many args there is or how many numbers are presents in string*/
 int	find_size(int argc, char **argv)
 {
 	int	i;
@@ -47,12 +48,19 @@ int	main(int argc, char **argv)
 {
 	int		*stack_a;
 	int		stack_size;
+	char	**split;
 
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	stack_size = find_size(argc, argv);
-	stack = crea_stack(argc, argv, stack_size);
+	printf("%d\n", stack_size);
+	stack_a = crea_stack(argc, argv, stack_size);
+	split = ft_split(argv[1], ' ');
+	printf("%s\n", split[0]);
+	printf("%s\n", split[1]);
+	printf("%s\n", split[2]);
+	printf("%s\n", split[3]);
+	printf("%s\n", split[4]);
 	//crea_index(stack_a, stack_size +1);
-	push_swap(&stack_a, &stack_b, stack_size);
 	return (EXIT_SUCCESS);
 }

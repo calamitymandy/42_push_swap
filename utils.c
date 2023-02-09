@@ -6,11 +6,21 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:37:55 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/01/27 19:08:52 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:05:04 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
 
 int	is_digit(char c)
 {
