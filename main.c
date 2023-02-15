@@ -6,7 +6,7 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:43:52 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/09 19:17:49 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:17:22 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,30 @@
 
 int	*crea_stack(int argc, char **argv, int stack_size)
 {
-	//TODO
+	size_t	i;
+	size_t	nums_size;
+	int		*stack;
+	char	**nums;
+
+	i = 0;
+	nums_size = 0;
+	stack = malloc(sizeof(int) * (stack_size +1));
+	if (!stack)
+		return (NULL);
+	stack[stack_size] = '\0';
+	while (++i < argc)
+	{
+		nums = ft_split(argv[i], ' ');
+		if (valid_input(nums, stack, nums_size))
+			fill_stack(nums, stack, nums_size);
+		//free_split(nums);
+	}
+	if (nums_size < stack_size)
+	{
+		free(stack);
+		return (NULL);
+	}
+	return (stack);
 }
 
 /* find how many args there is or how many numbers are presents in string*/
@@ -53,8 +76,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	stack_size = find_size(argc, argv);
-	printf("%d\n", stack_size);
-	stack_a = crea_stack(argc, argv, stack_size);
+	printf("stack size: %d\n", stack_size);
+	//stack_a = crea_stack(argc, argv, stack_size);
 	split = ft_split(argv[1], ' ');
 	printf("%s\n", split[0]);
 	printf("%s\n", split[1]);
