@@ -24,5 +24,6 @@ char		**ft_split(const char *s, char c);
 int			ft_strlen(const char *str);
 int			is_digit(char c);
 long int	ft_atoi(const char *str);
+int         double_strlen(char **str);
 
 #endif

@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+int	double_strlen(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
+
+
 int	ft_strlen(const char *str)
 {
 	int	i;

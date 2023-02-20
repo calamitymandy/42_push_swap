@@ -16,16 +16,28 @@
 * Finds stack size & initializes stack a,
 * EXIT_FAILURE = 1 / EXIT_SUCCESS = 0
 */
+
+void	fill_stack(char **nums, int *stack, size_t *nums_size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < double_strlen(nums))
+	{
+		stack[*nums_size] = ft_atoi(nums[i]);
+		*nums_size += 1;
+		i++;
+	}
+}
+
 size_t	valid_input(char **nums, int *stack, size_t nums_size)
 {
 	size_t	i;
 	size_t	j;
-	char	*temp;
 
 	i = 0;
 	j = 0;
-	temp = *nums;
-	while (i < ft_strlen(temp))
+	while (i < double_strlen(nums))
 	{
 		if (ft_atoi(nums[i]) > INT_MAX || ft_atoi(nums[i]) < INT_MIN)
 			return (0);
@@ -60,8 +72,7 @@ int	*crea_stack(int argc, char **argv, int stack_size)
 	{
 		nums = ft_split(argv[i], ' ');
 		if (valid_input(nums, stack, nums_size))
-			write (1, "ok", 2);
-			//fill_stack(nums, stack, nums_size);
+		fill_stack(nums, stack, &nums_size);
 		//free_split(nums);
 	}
 	if (nums_size < stack_size)
@@ -103,7 +114,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	stack_size = find_size(argc, argv);
 	stack_a = crea_stack(argc, argv, stack_size);
-	write (1, &stack_a, 1);
-	//printf("stack: %d\n", *stack_a);
+	//write (1, &stack_a, 1);
+	printf("stack: %d\n", stack_a[1]);
 	return (EXIT_SUCCESS);
 }
