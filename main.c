@@ -17,6 +17,7 @@
 * EXIT_FAILURE = 1 / EXIT_SUCCESS = 0
 */
 
+/*Fill stack_a with correct numbers*/
 void	fill_stack(char **nums, int *stack, size_t *nums_size)
 {
 	size_t	i;
@@ -30,27 +31,31 @@ void	fill_stack(char **nums, int *stack, size_t *nums_size)
 	}
 }
 
+/* check if input is betweeen size of an int
+ * check if there is duplicates
+ * check if there is numbers 
+ * If everything ok return (1)
+ */
 size_t	valid_input(char **nums, int *stack, size_t nums_size)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	while (i < double_strlen(nums))
+	while (++i < double_strlen(nums))
 	{
 		if (ft_atoi(nums[i]) > INT_MAX || ft_atoi(nums[i]) < INT_MIN)
 			return (0);
-		//if is_repeat(nums, i)
-			//return (0);
+		if (is_repeat(nums, i))
+			return (0);
 		while (j < nums_size)
 		{
 			if (ft_atoi(nums[i]) == 0)
 				return (0);
 			j++;
 		}
-		j = -1;
-		i++;
+		j = 0;
 	}
 	return (1);
 }
@@ -114,6 +119,11 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	stack_size = find_size(argc, argv);
 	stack_a = crea_stack(argc, argv, stack_size);
+	if (!stack_a)
+	{
+		write (1, "Error\n", 6);
+		return (0);
+	}
 	//write (1, &stack_a, 1);
 	printf("stack: %d\n", stack_a[1]);
 	return (EXIT_SUCCESS);

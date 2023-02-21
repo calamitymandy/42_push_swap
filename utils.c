@@ -12,6 +12,23 @@
 
 #include "push_swap.h"
 
+/* check if number in position given at each loop of valid_input is repeated
+within the rest of numbers
+Return: 1 if a duplicate is found, 0 if there are none. */
+int	is_repeat(char **nums, size_t posnum)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < posnum)
+	{
+		if (ft_atoi(nums[i]) == ft_atoi(nums[posnum]))
+			write (1, "Error\n", 6);
+			return (1);
+	}
+	return (0);
+}
+
 int	double_strlen(char **str)
 {
 	int	i;

@@ -25,5 +25,6 @@ int			ft_strlen(const char *str);
 int			is_digit(char c);
 long int	ft_atoi(const char *str);
 int         double_strlen(char **str);
+int         is_repeat(char **nums, size_t position);
 
 #endif
