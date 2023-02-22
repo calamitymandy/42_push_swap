@@ -22,9 +22,9 @@
 /*UTILS*/
 char		**ft_split(const char *s, char c);
 int			ft_strlen(const char *str);
-int			is_digit(char c);
+int			is_digit(int c);
 long int	ft_atoi(const char *str);
-int         double_strlen(char **str);
-int         is_repeat(char **nums, size_t position);
+size_t      double_strlen(char	**str);
+size_t         is_repeat(char **nums, size_t position);
 
 #endif

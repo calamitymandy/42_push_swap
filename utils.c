@@ -15,26 +15,26 @@
 /* check if number in position given at each loop of valid_input is repeated
 within the rest of numbers
 Return: 1 if a duplicate is found, 0 if there are none. */
-int	is_repeat(char **nums, size_t posnum)
+size_t	is_repeat(char **nums, size_t posnum)
 {
 	size_t	i;
 
-	i = -1;
-	while (++i < posnum)
+	i = 0;
+	while (i < posnum)
 	{
 		if (ft_atoi(nums[i]) == ft_atoi(nums[posnum]))
-			write (1, "Error\n", 6);
 			return (1);
+		i++;
 	}
 	return (0);
 }
 
-int	double_strlen(char **str)
+size_t	double_strlen(char	**str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (str[i])
 		i++;
 	return (i);
 }
@@ -50,9 +50,11 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-int	is_digit(char c)
+int	is_digit(int c)
 {
-	return (c >= '0' && c <= '9');
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }
 
 long int	ft_atoi(const char *str)

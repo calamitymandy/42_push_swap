@@ -17,6 +17,7 @@
 * EXIT_FAILURE = 1 / EXIT_SUCCESS = 0
 */
 
+
 /*Fill stack_a with correct numbers*/
 void	fill_stack(char **nums, int *stack, size_t *nums_size)
 {
@@ -33,7 +34,7 @@ void	fill_stack(char **nums, int *stack, size_t *nums_size)
 
 /* check if input is betweeen size of an int
  * check if there is duplicates
- * check if there is numbers 
+ * check if there is numbers ??????
  * If everything ok return (1)
  */
 size_t	valid_input(char **nums, int *stack, size_t nums_size)
@@ -41,9 +42,9 @@ size_t	valid_input(char **nums, int *stack, size_t nums_size)
 	size_t	i;
 	size_t	j;
 
-	i = -1;
+	i = 0;
 	j = 0;
-	while (++i < double_strlen(nums))
+	while (i < double_strlen(nums))
 	{
 		if (ft_atoi(nums[i]) > INT_MAX || ft_atoi(nums[i]) < INT_MIN)
 			return (0);
@@ -51,16 +52,17 @@ size_t	valid_input(char **nums, int *stack, size_t nums_size)
 			return (0);
 		while (j < nums_size)
 		{
-			if (ft_atoi(nums[i]) == 0)
+			if (ft_atoi(nums[i]) == stack[j])
 				return (0);
 			j++;
 		}
 		j = 0;
+		i++;
 	}
 	return (1);
 }
 
-int	*crea_stack(int argc, char **argv, int stack_size)
+int	*crea_stack(int argc, char **argv, size_t stack_size)
 {
 	size_t	i;
 	size_t	nums_size;
@@ -73,7 +75,7 @@ int	*crea_stack(int argc, char **argv, int stack_size)
 	if (!stack)
 		return (NULL);
 	stack[stack_size] = '\0';
-	while (++i < argc)
+	while (++i < (size_t)argc)
 	{
 		nums = ft_split(argv[i], ' ');
 		if (valid_input(nums, stack, nums_size))
@@ -89,7 +91,7 @@ int	*crea_stack(int argc, char **argv, int stack_size)
 }
 
 /* find how many args there is or how many numbers are presents in string*/
-int	find_size(int argc, char **argv)
+size_t	find_size(int argc, char **argv)
 {
 	int	i;
 	int	size;
@@ -113,7 +115,7 @@ int	find_size(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	int		*stack_a;
-	int		stack_size;
+	size_t		stack_size;
 
 	if (argc < 2)
 		exit(EXIT_FAILURE);
@@ -121,10 +123,11 @@ int	main(int argc, char **argv)
 	stack_a = crea_stack(argc, argv, stack_size);
 	if (!stack_a)
 	{
-		write (1, "Error\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
+	stack_a[stack_size] = '\0';
 	//write (1, &stack_a, 1);
-	printf("stack: %d\n", stack_a[1]);
+	printf("stack: %d\n", stack_a[4]);
 	return (EXIT_SUCCESS);
 }
