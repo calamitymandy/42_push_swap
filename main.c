@@ -6,7 +6,7 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:43:52 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/16 20:00:16 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:36:32 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 * Finds stack size & initializes stack a,
 * EXIT_FAILURE = 1 / EXIT_SUCCESS = 0
 */
-
 
 /*Fill stack_a with correct numbers*/
 void	fill_stack(char **nums, int *stack, size_t *nums_size)
@@ -34,7 +33,8 @@ void	fill_stack(char **nums, int *stack, size_t *nums_size)
 
 /* check if input is betweeen size of an int
  * check if there is duplicates
- * check if there is numbers ??????
+ * check if numbers are int whith 2nd passage in valid_input with nums_size
+ * incremented at first passage in fill_stack.
  * If everything ok return (1)
  */
 size_t	valid_input(char **nums, int *stack, size_t nums_size)
@@ -79,7 +79,7 @@ int	*crea_stack(int argc, char **argv, size_t stack_size)
 	{
 		nums = ft_split(argv[i], ' ');
 		if (valid_input(nums, stack, nums_size))
-		fill_stack(nums, stack, &nums_size);
+			fill_stack(nums, stack, &nums_size);
 		//free_split(nums);
 	}
 	if (nums_size < stack_size)
@@ -115,7 +115,7 @@ size_t	find_size(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	int		*stack_a;
-	size_t		stack_size;
+	size_t	stack_size;
 
 	if (argc < 2)
 		exit(EXIT_FAILURE);
@@ -127,7 +127,11 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack_a[stack_size] = '\0';
+	if (stack_size < 6)
+		push_short(stack_a, stack_size);
+	//else
+		//push_long(stack_a, stack_size);
 	//write (1, &stack_a, 1);
-	printf("stack: %d\n", stack_a[4]);
+	printf("stack: %d\n", stack_a[0]);
 	return (EXIT_SUCCESS);
 }

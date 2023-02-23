@@ -6,11 +6,37 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:37:55 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/09 19:05:04 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:38:16 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+size_t	is_sorted(int *stack, size_t stack_size)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < stack_size -1 && stack[i +1] > -1)
+	{
+		if (stack[i] > stack[i +1])
+		return (0);
+	}
+	return (1);
+}
+
+/*Create stack_b with as -1 as the lengtn of stack_size*/
+void	crea_stack_b(int *stack_b, int stack_size)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack_size)
+	{
+		stack_b[i] = -1;
+		i++;
+	}
+}
 
 /* check if number in position given at each loop of valid_input is repeated
 within the rest of numbers
@@ -38,7 +64,6 @@ size_t	double_strlen(char	**str)
 		i++;
 	return (i);
 }
-
 
 int	ft_strlen(const char *str)
 {
