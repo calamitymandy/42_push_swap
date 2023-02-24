@@ -132,6 +132,8 @@ int	main(int argc, char **argv)
 	//else
 		//push_long(stack_a, stack_size);
 	//write (1, &stack_a, 1);
-	printf("stack: %d\n", stack_a[0]);
+	printf("\n");
+	printf("check stack_a[0]: %d\n", stack_a[0]);
+	printf("check stack_a[1]: %d\n", stack_a[1]);
 	return (EXIT_SUCCESS);
 }

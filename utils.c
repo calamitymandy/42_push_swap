@@ -16,11 +16,12 @@ size_t	is_sorted(int *stack, size_t stack_size)
 {
 	size_t	i;
 
-	i = -1;
-	while (++i < stack_size -1 && stack[i +1] > -1)
+	i = 0;
+	while (i < stack_size - 1 && stack[i] > 0)
 	{
-		if (stack[i] > stack[i +1])
+		if (stack[i] > stack[i + 1])
 		return (0);
+		i++;
 	}
 	return (1);
 }

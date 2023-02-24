@@ -23,23 +23,20 @@ int	*assign_index(int *stack_a, size_t stack_size)
 	int		*stack_index;
 
 	i = -1;
-	j = 0;
+	j = -1;
 	index = 0;
-	stack_index = malloc(sizeof(int) * (stack_size +1));
+	stack_index = malloc(sizeof(int) * (stack_size + 1));
 	if (!stack_index)
 		return (NULL);
 	stack_index[stack_size] = '\0';
 	while (++i < stack_size)
 	{
-		while (j < stack_size)
-		{
+		while (++j < stack_size)
 			if (stack_a[i] > stack_a[j])
 				index++;
-			j++;
-		}
 		stack_index[i] = index;
 		index = 0;
-		j = 0;
+		j = -1;
 	}
 	return (stack_index);
 }
@@ -52,13 +49,13 @@ void    push_short(int *stack_a, size_t stack_size)
     temp = stack_a;
     stack_a = assign_index(stack_a, stack_size);
     free(temp);
-    stack_b = malloc(sizeof(int) * (stack_size +1));
+    stack_b = malloc(sizeof(int) * (stack_size + 1));
     if (stack_b)
     {
         stack_b[stack_size] = '\0';
         crea_stack_b(stack_b, stack_size);
         if (stack_size <= 2 && !is_sorted(stack_a, stack_size))
-        //ft_sa(stack_a);
+        do_sa(stack_a);
         //else if (!is_sorted(stack_a, stack_size))
         //tiny_sort(stack_a, stack_b, stack_size);
         free(stack_b);

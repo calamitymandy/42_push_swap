@@ -33,4 +33,7 @@ size_t      is_sorted(int *stack, size_t stack_size);
 int         *assign_index(int *stack_a, size_t stack_size);
 void        push_short(int *stack_a, size_t stack_size);
 
+/*A_MOVES*/
+void        do_sa(int *stack_a);
+
 #endif
