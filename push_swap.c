@@ -6,14 +6,15 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:11 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/23 15:43:23 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:24:13 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* Assign index at each number comparing it to every other number of stack
- * to make sorting easier */
+ * to make sorting easier
+ * When index is assigned, all numbers are positive */
 
 int	*assign_index(int *stack_a, size_t stack_size)
 {
@@ -41,24 +42,27 @@ int	*assign_index(int *stack_a, size_t stack_size)
 	return (stack_index);
 }
 
-void    push_short(int *stack_a, size_t stack_size)
+void	push_short(int *stack_a, size_t stack_size)
 {
-    int *stack_b;
-    int *temp;
+	int	*stack_b;
+	int	*temp;
 
-    temp = stack_a;
-    stack_a = assign_index(stack_a, stack_size);
-    free(temp);
-    stack_b = malloc(sizeof(int) * (stack_size + 1));
-    if (stack_b)
-    {
-        stack_b[stack_size] = '\0';
-        crea_stack_b(stack_b, stack_size);
-        if (stack_size <= 2 && !is_sorted(stack_a, stack_size))
-        do_sa(stack_a);
-        //else if (!is_sorted(stack_a, stack_size))
-        //tiny_sort(stack_a, stack_b, stack_size);
-        free(stack_b);
-    }
-    free(stack_a);
+	temp = stack_a;
+	stack_a = assign_index(stack_a, stack_size);
+	free(temp);
+	stack_b = malloc(sizeof(int) * (stack_size + 1));
+	if (stack_b)
+	{
+		stack_b[stack_size] = '\0';
+		crea_stack_b(stack_b, stack_size);
+		if (stack_size <= 2 && !is_sorted(stack_a, stack_size))
+			do_sa(stack_a);
+		printf("\n");
+		printf("check stack_a[0]: %d\n", stack_a[0]);
+		printf("check stack_a[1]: %d\n", stack_a[1]);
+		//else if (!is_sorted(stack_a, stack_size))
+		//tiny_sort(stack_a, stack_b, stack_size);
+		free(stack_b);
+	}
+	free(stack_a);
 }
