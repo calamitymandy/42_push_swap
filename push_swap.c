@@ -42,6 +42,12 @@ int	*assign_index(int *stack_a, size_t stack_size)
 	return (stack_index);
 }
 
+/* push_short: assign index to stack_a & initialize stack_b
+ * if size 2 & unsorted, we swap the two nums
+ * else we do the tiny_sort
+ * temp to avoid leaks, bc we assign a new memory direction with
+ * assign_index
+*/
 void	push_short(int *stack_a, size_t stack_size)
 {
 	int	*stack_b;
@@ -57,11 +63,14 @@ void	push_short(int *stack_a, size_t stack_size)
 		crea_stack_b(stack_b, stack_size);
 		if (stack_size <= 2 && !is_sorted(stack_a, stack_size))
 			do_sa(stack_a);
+		else if (!is_sorted(stack_a, stack_size))
+			tiny_sort(stack_a, stack_b, stack_size);
 		printf("\n");
 		printf("check stack_a[0]: %d\n", stack_a[0]);
 		printf("check stack_a[1]: %d\n", stack_a[1]);
-		//else if (!is_sorted(stack_a, stack_size))
-		//tiny_sort(stack_a, stack_b, stack_size);
+		printf("check stack_a[2]: %d\n", stack_a[2]);
+		printf("check stack_a[3]: %d\n", stack_a[3]);
+		printf("check stack_a[4]: %d\n", stack_a[4]);
 		free(stack_b);
 	}
 	free(stack_a);

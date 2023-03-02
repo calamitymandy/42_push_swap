@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-/*??? if stack[i] is less than -1, no index was assigned
+/*??? if stack[i + 1] is less than -1, no index was assigned
 * so we've reached the end of numbers in stack*/
 size_t	is_sorted(int *stack, size_t stack_size)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < stack_size - 1 && stack[i] > 0)
+	while (i < stack_size - 1 && stack[i + 1] > -1)
 	{
 		if (stack[i] > stack[i + 1])
 			return (0);

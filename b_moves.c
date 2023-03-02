@@ -40,7 +40,7 @@ void	do_pb(int *stack_a, int *stack_b, size_t stack_size)
 	write (1, "pb\n", 3);
 	temp = stack_a[0];
 	i = 0;
-	while (i > stack_size -1 && stack_a[i + 1] > -1)
+	while (i < stack_size -1 && stack_a[i + 1] > -1)
 	{
 		stack_a[i] = stack_a[i + 1];
 		i++;

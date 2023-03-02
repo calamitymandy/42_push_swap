@@ -6,7 +6,7 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:43:52 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/23 13:36:32 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:25:24 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,9 +131,8 @@ int	main(int argc, char **argv)
 		push_short(stack_a, stack_size);
 	//else
 		//push_long(stack_a, stack_size);
-	//write (1, &stack_a, 1);
 	printf("\n");
-	printf("check stack_a[0]: %d\n", stack_a[0]);
-	printf("check stack_a[1]: %d\n", stack_a[1]);
+	//printf("check stack_a[0]: %d\n", stack_a[0]);
+	//printf("check stack_a[1]: %d\n", stack_a[1]);	
 	return (EXIT_SUCCESS);
 }

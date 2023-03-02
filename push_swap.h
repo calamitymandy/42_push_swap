@@ -6,7 +6,7 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:39:48 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/27 18:55:31 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:26:41 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ void		do_rra(int *stack_a, size_t stack_size);
 /*B_MOVES*/
 void		do_sb(int *stack_b);
 void		do_pb(int *stack_a, int *stack_b, size_t stack_size);
+
+/*TINY_SORT*/
+void		tiny_sort(int *stack_a, int *stack_b, size_t stack_size);
 
 #endif
