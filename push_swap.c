@@ -6,11 +6,28 @@
 /*   By: amdemuyn <amdemuyn@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:11 by amdemuyn          #+#    #+#             */
-/*   Updated: 2023/02/27 18:24:13 by amdemuyn         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:31:57 by amdemuyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* If stack[i + 1] is less than -1, no index was assigned
+ * so we've reached the end of numbers in stack
+ */
+size_t	is_sorted(int *stack, size_t stack_size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < stack_size - 1 && stack[i + 1] > -1)
+	{
+		if (stack[i] > stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 /* Assign index at each number comparing it to every other number of stack
  * to make sorting easier
@@ -48,7 +65,7 @@ int	*assign_index(int *stack_a, size_t stack_size)
  * temp to avoid leaks, bc we assign a new memory direction with
  * assign_index
 */
-void	push_short(int *stack_a, size_t stack_size)
+void	push_small(int *stack_a, size_t stack_size)
 {
 	int	*stack_b;
 	int	*temp;
@@ -71,6 +88,46 @@ void	push_short(int *stack_a, size_t stack_size)
 		printf("check stack_a[2]: %d\n", stack_a[2]);
 		printf("check stack_a[3]: %d\n", stack_a[3]);
 		printf("check stack_a[4]: %d\n", stack_a[4]);
+		free(stack_b);
+	}
+	free(stack_a);
+}
+
+/* 1st loop all nums in bits with 0 on the right are pushed to B
+ * then pushed back to A
+ * 2nd loop all nums in bits with 0 on the 2nd position to the left 
+ * are pushed to B
+ * then pushed back to A
+ * etc... 
+ * until stack_a is sorted.
+*/
+void	push_big(int *stack_a, size_t stack_size)
+{
+	int		*temp;
+	int		*stack_b;
+	size_t	i;
+
+	i = -1;
+	temp = stack_a;
+	stack_a = assign_index(stack_a, stack_size);
+	free(temp);
+	stack_b = malloc(sizeof(int) * (stack_size + 1));
+	if (stack_b)
+	{
+		stack_b[stack_size] = '\0';
+		crea_stack_b(stack_b, stack_size);
+		while (!is_sorted(stack_a, stack_size))
+		{
+			use_stacks(stack_a, stack_b, ++i, stack_size);
+			join_stacks(stack_a, stack_b, stack_size);
+		}
+		printf("\n");
+		printf("check stack_a[0]: %d\n", stack_a[0]);
+		printf("check stack_a[1]: %d\n", stack_a[1]);
+		printf("check stack_a[2]: %d\n", stack_a[2]);
+		printf("check stack_a[3]: %d\n", stack_a[3]);
+		printf("check stack_a[4]: %d\n", stack_a[4]);
+		printf("check stack_a[5]: %d\n", stack_a[5]);
 		free(stack_b);
 	}
 	free(stack_a);

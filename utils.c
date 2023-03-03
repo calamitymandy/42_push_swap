@@ -12,35 +12,6 @@
 
 #include "push_swap.h"
 
-/*??? if stack[i + 1] is less than -1, no index was assigned
-* so we've reached the end of numbers in stack*/
-size_t	is_sorted(int *stack, size_t stack_size)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < stack_size - 1 && stack[i + 1] > -1)
-	{
-		if (stack[i] > stack[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-/*Create stack_b with as -1 as the length of stack_size*/
-void	crea_stack_b(int *stack_b, int stack_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack_size)
-	{
-		stack_b[i] = -1;
-		i++;
-	}
-}
-
 /* check if number in position given at each loop of valid_input is repeated
 within the rest of numbers
 Return: 1 if a duplicate is found, 0 if there are none. */

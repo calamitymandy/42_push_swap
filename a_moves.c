@@ -93,10 +93,7 @@ void	do_rra(int *stack_a, size_t stack_size)
 		i--;
 	temp = stack_a[i];
 	i++;
-	while (i > 0)
-	{
-		stack_a[i] = stack_a[i -1];
-		i--;
-	}
-	stack_a[0] = temp;
+	while (--i > 0)
+		stack_a[i] = stack_a[i - 1];
+	stack_a[i] = temp;
 }
