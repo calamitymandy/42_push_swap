@@ -28,8 +28,8 @@ long int	ft_atoi(const char *str);
 
 /*SPLIT*/
 char		**ft_split(const char *s, char c);
-static int	count_nums(const char *str, char c);
-static char	*nums_sep(const char *str, int start, int end);
+//static int	count_nums(const char *str, char c);
+//static char	*nums_sep(const char *str, int start, int end);
 char		*ft_splat(size_t i, const char	*s, char c, char **split);
 
 /*CREATE_STACKS*/

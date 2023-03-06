@@ -18,16 +18,16 @@
 
 void	sort_three(int *stack_a, size_t stack_size)
 {
-	if (stack_a[0] == stack_size - 2)
+	if ((size_t)stack_a[0] == stack_size - 2)
 	{
-		if (stack_a[1] == stack_size - 1)
+		if ((size_t)stack_a[1] == stack_size - 1)
 			do_rra(stack_a, stack_size);
 		else
 			do_sa(stack_a);
 	}
-	else if (stack_a[0] == stack_size - 1)
+	else if ((size_t)stack_a[0] == stack_size - 1)
 	{
-		if (stack_a[1] == stack_size - 2)
+		if ((size_t)stack_a[1] == stack_size - 2)
 		{
 			do_ra(stack_a, stack_size);
 			do_sa(stack_a);

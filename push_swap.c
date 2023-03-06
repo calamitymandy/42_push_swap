@@ -82,13 +82,13 @@ void	push_small(int *stack_a, size_t stack_size)
 			do_sa(stack_a);
 		else if (!is_sorted(stack_a, stack_size))
 			tiny_sort(stack_a, stack_b, stack_size);
-		printf("\n");
+		/*printf("\n");
 		printf("check stack_a[0]: %d\n", stack_a[0]);
 		printf("check stack_a[1]: %d\n", stack_a[1]);
 		printf("check stack_a[2]: %d\n", stack_a[2]);
 		printf("check stack_a[3]: %d\n", stack_a[3]);
 		printf("check stack_a[4]: %d\n", stack_a[4]);
-		free(stack_b);
+		free(stack_b);*/
 	}
 	free(stack_a);
 }
@@ -121,14 +121,14 @@ void	push_big(int *stack_a, size_t stack_size)
 			use_stacks(stack_a, stack_b, ++i, stack_size);
 			join_stacks(stack_a, stack_b, stack_size);
 		}
-		printf("\n");
+		/*printf("\n");
 		printf("check stack_a[0]: %d\n", stack_a[0]);
 		printf("check stack_a[1]: %d\n", stack_a[1]);
 		printf("check stack_a[2]: %d\n", stack_a[2]);
 		printf("check stack_a[3]: %d\n", stack_a[3]);
 		printf("check stack_a[4]: %d\n", stack_a[4]);
 		printf("check stack_a[5]: %d\n", stack_a[5]);
-		free(stack_b);
+		free(stack_b);*/
 	}
 	free(stack_a);
 }

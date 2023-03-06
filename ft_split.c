@@ -54,11 +54,11 @@ char	*ft_splat(size_t i, const char	*s, char c, char **split)
 
 	j = 0;
 	index = -1;
-	while (i <= ft_strlen(s))
+	while (i <= (size_t)ft_strlen(s))
 	{
 		if (s[i] != c && index < 0)
 			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		else if ((s[i] == c || i == (size_t)ft_strlen(s)) && index >= 0)
 		{
 			split[j++] = nums_sep(s, index, i);
 			index = -1;
