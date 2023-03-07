@@ -12,8 +12,11 @@
 
 #include "push_swap.h"
 
-/* If stack[i + 1] is less than -1, no index was assigned
- * so we've reached the end of numbers in stack
+/*
+ * If stack[i + 1] is less than -1, no index was assigned, so we've reached 
+ * the end of numbers in stack.
+ *
+ * Returns 1 if the stack is sorted, 0 otherwise
  */
 size_t	is_sorted(int *stack, size_t stack_size)
 {
@@ -29,10 +32,11 @@ size_t	is_sorted(int *stack, size_t stack_size)
 	return (1);
 }
 
-/* Assign index at each number comparing it to every other number of stack
+/* 
+ * Assign index at each number comparing it to every other number of stack
  * to make sorting easier
- * When index is assigned, all numbers are positive */
-
+ * When index is assigned, all numbers are positive (0, 1, 2... etc)
+ */
 int	*assign_index(int *stack_a, size_t stack_size)
 {
 	size_t	i;
@@ -82,13 +86,7 @@ void	push_small(int *stack_a, size_t stack_size)
 			do_sa(stack_a);
 		else if (!is_sorted(stack_a, stack_size))
 			tiny_sort(stack_a, stack_b, stack_size);
-		/*printf("\n");
-		printf("check stack_a[0]: %d\n", stack_a[0]);
-		printf("check stack_a[1]: %d\n", stack_a[1]);
-		printf("check stack_a[2]: %d\n", stack_a[2]);
-		printf("check stack_a[3]: %d\n", stack_a[3]);
-		printf("check stack_a[4]: %d\n", stack_a[4]);
-		free(stack_b);*/
+		free(stack_b);
 	}
 	free(stack_a);
 }
@@ -121,14 +119,16 @@ void	push_big(int *stack_a, size_t stack_size)
 			use_stacks(stack_a, stack_b, ++i, stack_size);
 			join_stacks(stack_a, stack_b, stack_size);
 		}
-		/*printf("\n");
-		printf("check stack_a[0]: %d\n", stack_a[0]);
-		printf("check stack_a[1]: %d\n", stack_a[1]);
-		printf("check stack_a[2]: %d\n", stack_a[2]);
-		printf("check stack_a[3]: %d\n", stack_a[3]);
-		printf("check stack_a[4]: %d\n", stack_a[4]);
-		printf("check stack_a[5]: %d\n", stack_a[5]);
-		free(stack_b);*/
+		free(stack_b);
 	}
 	free(stack_a);
 }
+
+/*printf("\n");
+printf("check stack_a[0]: %d\n", stack_a[0]);
+printf("check stack_a[1]: %d\n", stack_a[1]);
+printf("check stack_a[2]: %d\n", stack_a[2]);
+printf("check stack_a[3]: %d\n", stack_a[3]);
+printf("check stack_a[4]: %d\n", stack_a[4]);
+printf("check stack_a[5]: %d\n", stack_a[5]);
+*/

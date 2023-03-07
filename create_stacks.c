@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+void	free_split(char **nums)
+{
+	size_t	i;
+
+	i = 0;
+	while (nums[i])
+	{
+		free(nums[i]);
+		i++;
+	}
+	free(nums);
+}
+
 /*Create stack_b with as -1 as the length of stack_size*/
 void	crea_stack_b(int *stack_b, int stack_size)
 {
@@ -88,7 +101,7 @@ int	*crea_stack(int argc, char **argv, size_t stack_size)
 		nums = ft_split(argv[i], ' ');
 		if (valid_input(nums, stack, nums_size))
 			fill_stack(nums, stack, &nums_size);
-		//free_split(nums);
+		free_split(nums);
 	}
 	if (nums_size < stack_size)
 	{

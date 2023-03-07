@@ -12,10 +12,20 @@
 
 #include "push_swap.h"
 
-/* if 1st num is == size -1 it's the max number.
- * DO COMMENT !!!
+/*
+ * If middle number is at top of stack & largest number is at middle of stack: 
+ * reverse rotate(rra).
+ * If middle number is at top of stack & largest number IS NOT at middle of 
+ * stack: swap(sa).
+ * 
+ * If largest number is at top of stack & number in the middle IS middle 
+ * number: rotate stack and swap top 2 numbers. 
+ * If largest number is at top of stack & number in the middle IS NOT middle 
+ * number: reverse rotate(rra) x2. 
+ * 
+ * If smallest number is at top of the stack, reverse rotate(rra) number at the 
+ * bottom(middle num) to top and swap first 2 numbers.
  */
-
 void	sort_three(int *stack_a, size_t stack_size)
 {
 	if ((size_t)stack_a[0] == stack_size - 2)

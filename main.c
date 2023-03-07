@@ -60,3 +60,5 @@ int	main(int argc, char **argv)
 		push_big(stack_a, stack_size);
 	return (EXIT_SUCCESS);
 }
+
+/*	system("leaks push_swap");*/

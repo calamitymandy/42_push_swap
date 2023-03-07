@@ -20,7 +20,6 @@
  * If num_in_bits == 1, (num_in_bits & 1) == 1
  * If num_in_bits == 0, (num_in_bits & 1) == 0
  */
-
 size_t	check_bits(int num_in_bits, size_t bit_i)
 {
 	if (!num_in_bits)
