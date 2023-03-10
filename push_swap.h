@@ -28,11 +28,10 @@ long int	ft_atoi(const char *str);
 
 /*SPLIT*/
 char		**ft_split(const char *s, char c);
-//static int	count_nums(const char *str, char c);
-//static char	*nums_sep(const char *str, int start, int end);
 char		*ft_splat(size_t i, const char	*s, char c, char **split);
 
 /*CREATE_STACKS*/
+void		free_split(char **nums);
 void		crea_stack_b(int *stack_b, int stack_size);
 void		fill_stack(char **nums, int *stack, size_t *nums_size);
 size_t		valid_input(char **nums, int *stack, size_t nums_size);

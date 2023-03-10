@@ -33,7 +33,7 @@ size_t	check_bits(int num_in_bits, size_t bit_i)
 
 /* If check_bits == 0 (it means that num in bits in stack_a[0] has 0 
  * on the bit_i position), we push to B.
- * if not no we just rotate stack_a to go on with the analisis of stack_a.
+ * if not we just rotate stack_a to go on with the analisis of stack_a.
  * Until i reach stack_size.
  */
 void	use_stacks(int *stack_a, int *stack_b, size_t bit_i, size_t stack_size)

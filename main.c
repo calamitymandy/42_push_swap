@@ -15,6 +15,7 @@
 /* main:
 * Finds stack size & initializes stack a,
 * EXIT_FAILURE = 1 / EXIT_SUCCESS = 0
+* system("leaks push_swap");
 */
 
 /* find how many args there is or how many numbers are presents in string*/
@@ -60,5 +61,3 @@ int	main(int argc, char **argv)
 		push_big(stack_a, stack_size);
 	return (EXIT_SUCCESS);
 }
-
-/*	system("leaks push_swap");*/

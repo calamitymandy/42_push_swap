@@ -63,7 +63,7 @@ int	*assign_index(int *stack_a, size_t stack_size)
 	return (stack_index);
 }
 
-/* push_short: assign index to stack_a & initialize stack_b
+/* push_small: assign index to stack_a & initialize stack_b
  * if size 2 & unsorted, we swap the two nums
  * else we do the tiny_sort
  * temp to avoid leaks, bc we assign a new memory direction with

@@ -65,6 +65,8 @@ long int	ft_atoi(const char *str)
 	num = 0;
 	neg = 1;
 	i = 0;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == ' ')
+		i++;
 	if (str[i] == '+')
 		i++;
 	if (str[i] == '-')
@@ -77,5 +79,7 @@ long int	ft_atoi(const char *str)
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
+	if (str[i])
+		return (-2147483649);
 	return (num * neg);
 }

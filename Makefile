@@ -20,7 +20,7 @@ SRC		= main.c \
 		  a_moves.c \
 		  b_moves.c \
 		  utils.c \
-		  ft_split.c
+		  ft_split.c \
 
 OBJ		= $(SRC:.c=.o)
 

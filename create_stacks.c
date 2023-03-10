@@ -83,6 +83,11 @@ size_t	valid_input(char **nums, int *stack, size_t nums_size)
 	return (1);
 }
 
+/**
+ * Take the command line arguments, splits them by spaces, 
+ * validates the input, and fill the stack
+ * return A pointer to an array of int.
+ */
 int	*crea_stack(int argc, char **argv, size_t stack_size)
 {
 	size_t	i;
